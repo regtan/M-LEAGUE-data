@@ -1,0 +1,31 @@
+# Ignore database files
+*.sqlite3
+
+# Ignore static files
+/staticfiles/
+
+# Ignore media files
+/media/
+
+# Ignore virtual environment
+/venv/
+
+# Ignore IDE files
+.vscode/
+.idea/
+
+# Ignore compiled Python files
+*.pyc
+__pycache__/
+
+# Ignore logs
+*.log
+
+# Ignore environment variables
+.env
+
+# Ignore local settings
+/local_settings.py
+
+# Ignore Docker data volume files
+/mysql-container/data
