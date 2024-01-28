@@ -6,6 +6,7 @@ class Team(models.Model):
     name = models.CharField(max_length=255)
     name_kana = models.CharField(max_length=255)
     official_x_id = models.CharField(max_length=255)
+    description = models.TextField(null=True,blank=True)
     join_date = models.DateField("date joined league")
     leave_date = models.DateField("date left league",null=True,blank=True)
 
