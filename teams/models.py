@@ -7,7 +7,7 @@ class Team(models.Model):
     name_kana = models.CharField(max_length=255)
     official_x_id = models.CharField(max_length=255)
     join_date = models.DateField("date joined league")
-    leave_date = models.DateField("date left league",null=True)
+    leave_date = models.DateField("date left league",null=True,blank=True)
 
     def __str__(self):
         return self.name
