@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'debug_toolbar',
     'teams.apps.TeamsConfig',
+    'members.apps.MembersConfig',
 ]
 
 MIDDLEWARE = [
