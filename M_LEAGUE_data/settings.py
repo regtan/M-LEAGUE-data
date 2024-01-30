@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'teams.apps.TeamsConfig',
     'members.apps.MembersConfig',
+    'organizations.apps.OrganizationsConfig',
 ]
 
 MIDDLEWARE = [
