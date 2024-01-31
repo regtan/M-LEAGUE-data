@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'teams.apps.TeamsConfig',
     'members.apps.MembersConfig',
     'organizations.apps.OrganizationsConfig',
+    'seasons.apps.SeasonsConfig',
 ]
 
 MIDDLEWARE = [
