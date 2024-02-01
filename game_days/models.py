@@ -4,8 +4,8 @@ from seasons.models import Season
 class GameDay(models.Model):
     MATCH_TYPE = [
         ('LEGULAR','legular'),
-        ('SEMI_FINAL','semi_final'),
-        ('FINAL','FINAL')
+        ('SEMI_FINAL','semi final'),
+        ('FINAL','final')
     ]
 
     season = models.ForeignKey('seasons.Season',on_delete=models.CASCADE)
