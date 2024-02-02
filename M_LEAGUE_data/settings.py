@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'organizations.apps.OrganizationsConfig',
     'seasons.apps.SeasonsConfig',
     'game_days.apps.GameDaysConfig',
+    'games.apps.GamesConfig',
 ]
 
 MIDDLEWARE = [
