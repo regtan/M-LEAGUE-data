@@ -13,3 +13,16 @@ class Game(models.Model):
     def __str__(self):
         return str(self.game_day) + ":" + str(self.game_number)
 
+class Round(models.Model):
+    WIND = [
+        ('EAST','東'),
+        ('SOUTH','南'),
+    ]
+    game = models.ForeignKey(Game,on_delete=models.CASCADE)
+    round_wind = models.TextField('round wind',choices=WIND)
+    round_number = models.IntegerField('round number')
+    tsumibo = models.IntegerField('tsumibo')
+    dead_wall = models.IntegerField('dead wall')
+
+    def __str__(self):
+        return str(self.game) + ":" + str(self.round_wind) + ":" + str(self.round_number) + "局" + ":" + str(self.tsumibo) + '本場'
