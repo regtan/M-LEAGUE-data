@@ -26,3 +26,17 @@ class Round(models.Model):
 
     def __str__(self):
         return str(self.game) + ":" + str(self.round_wind) + ":" + str(self.round_number) + "局" + ":" + str(self.tsumibo) + '本場'
+
+class GameBroadcaster(models.Model):
+    BROADCASTER_TYPE = [
+        ('CASTER','実況'),
+        ('COMMENTATOR','解説'),
+        ('PLAYER_COMMENTATOR','プレイヤー解説'),
+        ('INTERVIEWER','インタビュー'),
+    ]
+    game = models.ForeignKey(Game,on_delete=models.CASCADE)
+    broadcaster_type = models.TextField('broadcaster type',choices=BROADCASTER_TYPE)
+    broadcaster = models.ForeignKey('broadcasters.Broadcaster',on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.game) + ":" + str(self.broadcaster)
