@@ -40,3 +40,22 @@ class GameBroadcaster(models.Model):
 
     def __str__(self):
         return str(self.game) + ":" + str(self.broadcaster)
+
+class GameResult(models.Model):
+    POSITION = [
+        (1,'1位'),
+        (2,'2位'),
+        (3,'3位'),
+        (4,'4位'),
+        (1.5,'同点1位'),
+        (2.5,'同点2位'),
+        (3.5,'同点3位'),
+        (4.5,'同点4位'),
+    ]
+    
+    game = models.ForeignKey(Game,on_delete=models.CASCADE)
+    member = models.ForeignKey(Member,on_delete=models.CASCADE)
+    position = models.FloatField('position',choices=POSITION)
+    row_score = models.IntegerField('row score')
+    position_score = models.IntegerField('position score')
+    total_score = models.FloatField('total score')
