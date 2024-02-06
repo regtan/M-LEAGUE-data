@@ -70,3 +70,15 @@ class GameResult(models.Model):
         self.total_score = self.calc_total_score(self.row_score,self.position_score,self.BASE_SCORE)
         super().save(*args,**kwargs)
 
+class HaiPai(models.Model):
+    SEATS = [
+        ('EAST','東'),
+        ('SOUTH','南'),
+        ('WEST','西'),
+        ('NORTH','北'),
+    ]
+    round = models.ForeignKey(Round,on_delete=models.CASCADE)
+    seats = models.CharField('seats',max_length=255,choices=SEATS)
+    member = models.ForeignKey(Member,on_delete=models.CASCADE)
+    hai_pai = models.CharField('hai pai',max_length=255,null=True,blank=True)
+    syanten = models.IntegerField('syanten',editable=False,null=True,blank=True)
