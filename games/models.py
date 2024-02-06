@@ -1,3 +1,4 @@
+from collections.abc import Iterable
 from django.db import models
 from game_days.models import GameDay
 from members.models import Member
@@ -52,10 +53,20 @@ class GameResult(models.Model):
         (3.5,'同点3位'),
         (4.5,'同点4位'),
     ]
+
+    BASE_SCORE = 30000
     
     game = models.ForeignKey(Game,on_delete=models.CASCADE)
     member = models.ForeignKey(Member,on_delete=models.CASCADE)
     position = models.FloatField('position',choices=POSITION)
     row_score = models.IntegerField('row score')
     position_score = models.IntegerField('position score')
-    total_score = models.FloatField('total score')
+    total_score = models.FloatField('total score',editable=False)
+
+    def calc_total_score(self,row_score,position_score,base_score):
+        return (row_score + position_score - base_score)/1000
+
+    def save(self,*args,**kwargs):
+        self.total_score = self.calc_total_score(self.row_score,self.position_score,self.BASE_SCORE)
+        super().save(*args,**kwargs)
+
