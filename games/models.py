@@ -83,7 +83,7 @@ class HaiPai(models.Model):
     hai_pai = models.CharField('hai pai',max_length=255,null=True,blank=True)
     syanten = models.IntegerField('syanten',editable=False,null=True,blank=True)
 
-class WinningHands(models.Model):
+class WinningHand(models.Model):
     WINNING_TYPE = [
         ('TSUMO','ツモ'),
         ('RON','ロン'),
