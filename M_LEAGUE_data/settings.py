@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'game_days.apps.GameDaysConfig',
     'games.apps.GamesConfig',
     'broadcasters.apps.BroadcastersConfig',
+    'rounds.apps.RoundsConfig',
 ]
 
 MIDDLEWARE = [
