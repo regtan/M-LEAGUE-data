@@ -42,3 +42,12 @@ class WinningHand(models.Model):
     fuu = models.IntegerField('fuu')
     faan = models.IntegerField('faan')
     winning_score = models.IntegerField('winning score',editable=False)
+
+class DrawnRound(models.Model):
+    DRAWN_HANDS_TYPE = [
+        ('TENPAI','聴牌'),
+        ('NOTEN','不聴'),
+    ]
+    round = models.ForeignKey(Round,on_delete=models.CASCADE)
+    member = models.ForeignKey(Member,on_delete=models.CASCADE)
+    drawn_hands = models.CharField('drawn hands',max_length=255,choices=DRAWN_HANDS_TYPE)
