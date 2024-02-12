@@ -51,3 +51,18 @@ class DrawnRound(models.Model):
     round = models.ForeignKey(Round,on_delete=models.CASCADE)
     member = models.ForeignKey(Member,on_delete=models.CASCADE)
     drawn_hands = models.CharField('drawn hands',max_length=255,choices=DRAWN_HANDS_TYPE)
+
+class Fuuro(models.Model):
+    FUURO_TYPE = [
+        ('CHI','チー'),
+        ('PON','ポン'),
+        ('KAN','カン'),
+        ('MINKAN','明槓'),
+        ('KAKAN','加槓'),
+        ('ANKAN','暗槓'),
+    ]
+    round = models.ForeignKey(Round,on_delete=models.CASCADE)
+    member = models.ForeignKey(Member,on_delete=models.CASCADE)
+    fuuro_number = models.IntegerField('fuuro number')
+    fuuro_type = models.CharField('fuuro type',max_length=255,choices=FUURO_TYPE)
+    fuuro_hands = models.CharField('fuuro hands',max_length=255)
