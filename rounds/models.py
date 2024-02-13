@@ -66,3 +66,8 @@ class Fuuro(models.Model):
     fuuro_number = models.IntegerField('fuuro number')
     fuuro_type = models.CharField('fuuro type',max_length=255,choices=FUURO_TYPE)
     fuuro_hands = models.CharField('fuuro hands',max_length=255)
+
+class RoundResult(models.Model):
+    round = models.ForeignKey(Round,on_delete=models.CASCADE)
+    member = models.ForeignKey(Member,on_delete=models.CASCADE)
+    round_score = models.IntegerField('round score')
